@@ -1,1 +1,0 @@
-Matrizes with embeddings vectors. Thes matrices are generated with PERCH model, and later load to train the One-Class SVM detection model.
