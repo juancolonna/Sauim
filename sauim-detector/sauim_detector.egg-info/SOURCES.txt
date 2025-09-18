@@ -4,7 +4,6 @@ setup.py
 sauim_detector/__init__.py
 sauim_detector/classifier.py
 sauim_detector/cli.py
-sauim_detector/exporter.py
 sauim_detector/loader.py
 sauim_detector.egg-info/PKG-INFO
 sauim_detector.egg-info/SOURCES.txt
