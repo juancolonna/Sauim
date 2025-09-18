@@ -6,7 +6,13 @@
 
 ## 📦 Installation
 
-Clone and install the package:
+Directly from pypi:
+
+```bash
+pip install sauim-detector==0.1.0
+```
+
+Directly from the GitHub repo (clone and install the package):
 
 ```bash
 git clone https://github.com/juancolonna/Sauim.git
