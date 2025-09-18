@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sauim-detector"
-version = "0.1.0"
+version = "0.1.1"
 description = "Bioacoustic processing and Pied tamarin (Saguinus bicolor) vocalization detector."
 readme = "README.md"
 authors = [

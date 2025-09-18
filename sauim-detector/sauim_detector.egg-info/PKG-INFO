@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: sauim-detector
-Version: 0.1.0
+Version: 0.1.1
 Summary: Bioacoustic processing and Pied tamarin (Saguinus bicolor) vocalization detector.
 Author-email: Your Name <youremail@example.com>
 License: MIT
@@ -25,7 +25,13 @@ Requires-Dist: tqdm>=4.67.1
 
 ## 📦 Installation
 
-Clone and install the package:
+Directly from pypi:
+
+```bash
+pip install sauim-detector==0.1.1
+```
+
+Directly from the GitHub repo (clone and install the package):
 
 ```bash
 git clone https://github.com/juancolonna/Sauim.git

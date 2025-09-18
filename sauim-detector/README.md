@@ -9,7 +9,7 @@
 Directly from pypi:
 
 ```bash
-pip install sauim-detector==0.1.0
+pip install sauim-detector==0.1.1
 ```
 
 Directly from the GitHub repo (clone and install the package):
