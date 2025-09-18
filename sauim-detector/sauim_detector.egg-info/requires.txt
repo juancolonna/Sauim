@@ -1,0 +1,8 @@
+librosa
+numpy
+scipy
+tensorflow
+tensorflow-hub
+joblib
+tqdm
+soundfile

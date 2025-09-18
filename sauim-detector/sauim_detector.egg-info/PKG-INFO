@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: sauim-detector
+Version: 0.1.0
+Requires-Dist: librosa
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: tensorflow
+Requires-Dist: tensorflow-hub
+Requires-Dist: joblib
+Requires-Dist: tqdm
+Requires-Dist: soundfile
+Dynamic: requires-dist
