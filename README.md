@@ -11,7 +11,7 @@ Quick tutorial: [Watch on YouTube](https://www.youtube.com/watch?v=avhEqXSRP7U)
 Directly from pypi:
 
 ```bash
-pip install sauim-detector==0.1.1
+pip install sauim-detector
 ```
 
 Directly from the GitHub repo (clone and install the package):
