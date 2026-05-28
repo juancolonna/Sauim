@@ -1,26 +1,26 @@
 [build-system]
-requires = ["setuptools>=61", "wheel"]
+requires = ["setuptools>=61,<82", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "sauim-detector"
-version = "0.1.2"
+version = "0.1.4"
 description = "Bioacoustic processing and Pied tamarin (Saguinus bicolor) vocalization detector."
 readme = "README.md"
 authors = [
-    { name = "Your Name", email = "youremail@example.com" }
+    { name = "Juan G. Colonna", email = "juancolonna@icomp.ufam.edu.br" }
 ]
 license = { text = "MIT" }
-requires-python = ">=3.9"
+requires-python = ">=3.12,<3.13"
 dependencies = [
-    "joblib>=1.5.2",
+    "joblib>=1.5.3",
     "librosa>=0.11.0",
-    "numpy>=2.1.3",
-    "scipy>=1.15.3",
+    "numpy>=2.4.6",
+    "scipy>=1.17.1",
     "soundfile>=0.13.1",
-    "tensorflow>=2.20.0",
+    "tensorflow>=2.21.0",
     "tensorflow-hub>=0.16.1",
-    "tqdm>=4.67.1",
+    "setuptools<82",
 ]
 
 [project.urls]
