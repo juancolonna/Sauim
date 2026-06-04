@@ -1,4 +1,4 @@
-# 🐒 Sauim Detector
+# 🐒 Sauim Bioacoustic Detector
 
 `sauim-detector` is a Python command-line tool for bioacoustic processing and automatic detection of Pied tamarin (*Saguinus bicolor*) vocalizations. It uses a pre-trained bird vocalization embedding model and a custom One-Class SVM classifier trained to detect the target species.
 
