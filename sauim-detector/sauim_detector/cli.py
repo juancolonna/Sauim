@@ -25,20 +25,28 @@ def main():
     - Runs feature extraction + classification (OCSVM)
     - Saves detection labels in Audacity format
     - Optionally saves filtered audio as .wav
+    - Optionally specifies the hop length (stride) in seconds between windows (1-5s, default 5s)
     """
     parser = argparse.ArgumentParser(description="Bioacoustic audio processing and Pied tamarin classification.")
     parser.add_argument("filepath", help="Path to input .wav file")
+    parser.add_argument("--stride", type=int, default=5,
+                        help="Hop length in seconds between windows (1-5s, default 5s)")
     parser.add_argument("--save-audio", action="store_true",
                         help="If set, saves the filtered audio as a .wav file.")
     parser.add_argument("--save-detections", action="store_true",
                         help="If set, saves the detection labels in Audacity format.")
     args = parser.parse_args()
 
+    assert args.stride >= 1 and args.stride <= 5, "Stride must be between 1 and 5 seconds."
+
     sr = 32000  # Target sampling rate
     y, sr = load_audio(args.filepath, sr=sr)
-    detections = classify_signal(y, sr, model, clf)
+    detections = classify_signal(y, sr, model, clf, stride=args.stride)
     print(f"Total detections: {len(detections)}")
     base, _ = os.path.splitext(args.filepath)
+
+    # Output predictions as JSON to stdout (read by the VAMP plugin via popen)
+    print(json.dumps(detections), flush=True)
 
     # Save detection labels to a text file (Audacity label format)
     if args.save_detections:
@@ -51,9 +59,6 @@ def main():
                     f"{det['species']}\n"
                 )
         print(f"✅ Labels saved as: {output_file}")
-    else:
-        # Output predictions as JSON to stdout (read by the VAMP plugin via popen)
-        print(json.dumps(detections), flush=True)
 
     # Save filtered audio if the flag is set
     if args.save_audio:

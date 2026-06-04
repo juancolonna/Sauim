@@ -46,7 +46,7 @@ def merge_detections(detections):
 
     return merged
 
-def classify_signal(y, sr, model, clf):
+def classify_signal(y, sr, model, clf, stride=5):
     """
     Classify an audio signal into presence/absence of target events
     (e.g., tamarin vocalizations) using embeddings + OCSVM, 
@@ -66,15 +66,20 @@ def classify_signal(y, sr, model, clf):
         sr (int): sampling rate
         model: embedding model with an `infer_tf` method
         clf: OCSVM classifier with `decision_function`
+        stride (int): hop length in seconds between windows between 1 and 5, default 5s
 
     Returns:
         list of detection dicts
     """
+    assert stride >= 1 and stride <= 5, "Stride must be between 1 and 5 seconds."
+
+    window_size = 5 * sr  # 5 seconds in samples
+    stride = int(stride * sr)  # Convert stride to samples
 
     detections = []
 
-    for i in range(0, len(y) - 5*sr + 1, sr):
-        frame = y[i:i+5*sr]
+    for i in range(0, len(y) - window_size + 1, stride):
+        frame = y[i:i+window_size]
 
         # Feature extraction and classification
         model_outputs = model.infer_tf(frame[np.newaxis, :])
@@ -82,7 +87,7 @@ def classify_signal(y, sr, model, clf):
 
         if decision_score >= 0.0:
             start = i / sr
-            end = (i + 5*sr) / sr
+            end = (i + window_size) / sr
             detections.append({
                 "species":    "Pied tamarin",
                 "scientific": "Saguinus bicolor",
