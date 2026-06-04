@@ -42,7 +42,7 @@ def main():
     sr = 32000  # Target sampling rate
     y, sr = load_audio(args.filepath, sr=sr)
     detections = classify_signal(y, sr, model, clf, stride=args.stride)
-    print(f"Total detections: {len(detections)}")
+    # print(f"Total detections: {len(detections)}")
     base, _ = os.path.splitext(args.filepath)
 
     # Output predictions as JSON to stdout (read by the VAMP plugin via popen)

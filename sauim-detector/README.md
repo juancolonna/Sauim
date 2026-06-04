@@ -32,35 +32,39 @@ The package requires Python `>=3.12,<3.13`. TensorFlow and TensorFlow Hub compat
 
 ## Usage
 
-Run the detector from the repository root:
+Run the detector with a path to a `.wav` file:
 
 ```bash
 sauim-detector records/Mindu_Saguinus_bicolor_02.02.19-000.wav
 ```
 
-By default, detections are printed to the terminal in JSON format.
+The `--stride` argument sets the hop length, in seconds, between consecutive analysis windows. It accepts values from `1` to `5`; the default is `5`. Lower values use more overlap between windows and may improve coverage of short vocalizations, but increase processing time. Example:
 
-Save detections as an Audacity label file:
+```bash
+sauim-detector records/Mindu_Saguinus_bicolor_02.02.19-000.wav --stride 2
+```
+
+By default, detections are printed to the terminal in JSON format. To save detections as an Audacity label file use:
 
 ```bash
 sauim-detector records/Mindu_Saguinus_bicolor_02.02.19-000.wav --save-detections
 ```
 
-Save the processed audio used by the detector:
+Save the band-pass filtered audio used by the detector:
 
 ```bash
 sauim-detector records/Mindu_Saguinus_bicolor_02.02.19-000.wav --save-audio
 ```
 
-Use both options together:
+Use all three options together:
 
 ```bash
-sauim-detector records/Mindu_Saguinus_bicolor_02.02.19-000.wav --save-detections --save-audio
+sauim-detector records/Mindu_Saguinus_bicolor_02.02.19-000.wav --stride 2 --save-detections --save-audio
 ```
 
 ## Outputs
 
-With `--save-detections`, the CLI writes an Audacity-compatible label file next to the input audio:
+With `--save-detections`, the CLI writes an Audacity-compatible label file named `<input>_detections.txt` next to the input audio:
 
 ```text
 start_time    end_time    label
