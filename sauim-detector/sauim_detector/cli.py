@@ -29,7 +29,7 @@ def main():
     """
     parser = argparse.ArgumentParser(description="Bioacoustic audio processing and Pied tamarin classification.")
     parser.add_argument("filepath", help="Path to input .wav file")
-    parser.add_argument("--stride", type=int, default=5,
+    parser.add_argument("--stride", type=float, default=5.0,
                         help="Hop length in seconds between windows (1-5s, default 5s)")
     parser.add_argument("--save-audio", action="store_true",
                         help="If set, saves the filtered audio as a .wav file.")
@@ -37,7 +37,7 @@ def main():
                         help="If set, saves the detection labels in Audacity format.")
     args = parser.parse_args()
 
-    assert args.stride >= 1 and args.stride <= 5, "Stride must be between 1 and 5 seconds."
+    assert args.stride >= 1.0 and args.stride <= 5.0, "Stride must be between 1 and 5 seconds."
 
     sr = 32000  # Target sampling rate
     y, sr = load_audio(args.filepath, sr=sr)

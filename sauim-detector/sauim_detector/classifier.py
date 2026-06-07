@@ -46,7 +46,7 @@ def merge_detections(detections):
 
     return merged
 
-def classify_signal(y, sr, model, clf, stride=5):
+def classify_signal(y, sr, model, clf, stride=5.0):
     """
     Classify an audio signal into presence/absence of target events
     (e.g., tamarin vocalizations) using embeddings + OCSVM, 
@@ -71,7 +71,7 @@ def classify_signal(y, sr, model, clf, stride=5):
     Returns:
         list of detection dicts
     """
-    assert stride >= 1 and stride <= 5, "Stride must be between 1 and 5 seconds."
+    assert stride >= 1.0 and stride <= 5.0, "Stride must be between 1 and 5 seconds."
 
     window_size = 5 * sr  # 5 seconds in samples
     stride = int(stride * sr)  # Convert stride to samples

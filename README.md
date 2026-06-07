@@ -38,10 +38,10 @@ Run the detector with a path to a `.wav` file:
 sauim-detector records/Mindu_Saguinus_bicolor_02.02.19-000.wav
 ```
 
-The `--stride` argument sets the hop length, in seconds, between consecutive analysis windows. It accepts values from `1` to `5`; the default is `5`. Lower values use more overlap between windows and may improve coverage of short vocalizations, but increase processing time. Example:
+The `--stride` argument sets the hop length, in seconds, between consecutive analysis windows. It accepts values from `1.0` to `5.0`; the default is `5.0`. Lower values use more overlap between windows and may improve coverage of short vocalizations, but increase processing time. Example:
 
 ```bash
-sauim-detector records/Mindu_Saguinus_bicolor_02.02.19-000.wav --stride 2
+sauim-detector records/Mindu_Saguinus_bicolor_02.02.19-000.wav --stride 2.5
 ```
 
 By default, detections are printed to the terminal in JSON format. To save detections as an Audacity label file use:
@@ -59,7 +59,7 @@ sauim-detector records/Mindu_Saguinus_bicolor_02.02.19-000.wav --save-audio
 Use all three options together:
 
 ```bash
-sauim-detector records/Mindu_Saguinus_bicolor_02.02.19-000.wav --stride 2 --save-detections --save-audio
+sauim-detector records/Mindu_Saguinus_bicolor_02.02.19-000.wav --stride 2.5 --save-detections --save-audio
 ```
 
 ## Outputs
